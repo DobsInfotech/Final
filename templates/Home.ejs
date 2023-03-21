@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title></title>
+
+    <style>
+
+        body {
+  padding: 2em;
+}
+
+[type=submit] {
+  padding: 0.5em 2em;
+}
+
+.add-new-person {
+  background: #6688dd;
+  border-radius: 0.25em;
+  color: #fff;
+  display: inline-block;
+  padding: 0.5em;
+  text-decoration: none;
+}
+
+    </style>
+
+</head>
+<body>
+
+    <form method="post" action="" enctype="form-data">
+
+        <p id="demo">
+
+            Upi : <input type="text" placeholder="Upi" name="Upi" value=""><br><br>
+
+        </p>
+
+        <div id="people-container"></div>
+
+        <input type="button" value="Add new Pack" onclick="msg()">
+        <button>submit</button>
+
+    </form>
+
+    <script>
+
+        let i = 1;
+    function msg() {
+        const element = document.getElementById("demo");
+    if(element){
+        element.remove();
+    }
+
+    if(i !== 1){
+
+        let template = `
+        Pack ${i} : <input name="people[${i}]" type="text" placeholder="Pack ${i}" value="" required>`;
+
+        let container = document.getElementById('people-container');
+    let div = document.createElement('div');
+    div.innerHTML = template;
+
+    container.appendChild(div);
+
+    }else{
+
+        let template = `
+        Upi : <input name="Upi" type="text" placeholder="Upi" value="" required><br><br>
+        Pack ${i} : <input name="people[${i}]" type="text" placeholder="Pack ${i}" value="" required>`;
+
+        let container = document.getElementById('people-container');
+    let div = document.createElement('div');
+    div.innerHTML = template;
+
+    container.appendChild(div);
+
+    }
+
+    i++;
+}
+
+    </script>
+    
+</body>
+</html>
