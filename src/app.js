@@ -26,7 +26,7 @@ app.set("view engine", "ejs");
 app.set("views", ejs_folder_path);
 
 require("dotenv").config();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 4000;
 
 app.use("/", router);
 
